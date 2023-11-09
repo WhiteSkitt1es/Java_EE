@@ -3,6 +3,12 @@
     <output-path>$PROJECT_DIR$/out/artifacts/servlets_starter</output-path>
     <root id="archive" name="servlets-starter.war">
       <element id="artifact" artifact-name="http-servlets-starter:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

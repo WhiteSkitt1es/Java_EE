@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class FlightDao implements Dao<Long, Flight>{
+public class FlightDao implements Dao<Long, Flight> {
 
     private static final FlightDao INSTANCE = new FlightDao();
 
@@ -32,7 +32,7 @@ public class FlightDao implements Dao<Long, Flight>{
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Flight> result = new ArrayList<>();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 result.add(bildFlight(resultSet));
             }
             return result;
@@ -61,9 +61,11 @@ public class FlightDao implements Dao<Long, Flight>{
     public Flight save(Flight entity) {
         return null;
     }
-    public static FlightDao getInstance(){
+
+    public static FlightDao getInstance() {
         return INSTANCE;
     }
+
     private Flight bildFlight(ResultSet resultSet) throws SQLException {
         return new Flight(
                 resultSet.getObject("id", Long.class),
