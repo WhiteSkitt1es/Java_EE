@@ -9,6 +9,7 @@ import com.http.util.LocalDateFormatter;
 public class UsersMapper implements Mapper<UsersDto, Users> {
 
     private static final UsersMapper INSTANCE = new UsersMapper();
+    private static final String IMAGE_FOLDER = "users/";
 
     private UsersMapper(){}
 
@@ -17,6 +18,7 @@ public class UsersMapper implements Mapper<UsersDto, Users> {
         return Users.builder()
                 .name(object.getName())
                 .birthday(LocalDateFormatter.format(object.getBirthday()))
+                .image(IMAGE_FOLDER + object.getImage().getSubmittedFileName())
                 .email(object.getEmail())
                 .password(object.getPassword())
                 .role(Role.valueOf(object.getRole()))
