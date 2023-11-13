@@ -21,8 +21,8 @@ public class UsersMapper implements Mapper<UsersDto, Users> {
                 .image(IMAGE_FOLDER + object.getImage().getSubmittedFileName())
                 .email(object.getEmail())
                 .password(object.getPassword())
-                .role(Role.valueOf(object.getRole()))
-                .gender(Gender.valueOf(object.getGender()))
+                .role(Role.find(object.getRole()).orElse(null))
+                .gender(Gender.find(object.getGender()).orElse(null))
                 .build();
     }
     public static UsersMapper getInstance(){

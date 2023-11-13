@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Optional;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ImageService {
@@ -24,6 +25,13 @@ public class ImageService {
             Files.createDirectories(imageFullPath.getParent());
             Files.write(imageFullPath, imageContent.readAllBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         }
+    }
+    @SneakyThrows
+    public Optional<InputStream> get(String imagePath){
+        Path path = Path.of(basePath, imagePath);
+        return Files.exists(path)
+                ? Optional.of(Files.newInputStream(path))
+                : Optional.empty();
     }
 
     public static ImageService getInstance() {

@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<img src="${pageContext.request.contextPath}/images/users/42.jpg" alt="User image">
+<img src="${pageContext.request.contextPath}/images/users/digital_camera_photo-1080x675.jpg" alt="User image">
     <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
       <label for="nameId">Name:
         <input type="text" name="name" id="nameId">
